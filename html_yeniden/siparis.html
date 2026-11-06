@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#100d16">
+	<meta name="author" content="Rota Motor">
+	<meta name="application-name" content="ROTA MOTOR">
+	<meta name="description" content="Rota Motor hesabındaki sepetini ve sipariş geçmişini görüntüle.">
+	<meta name="keywords" content="Rota Motor, siparişlerim, motosiklet siparişi, sepetim">
+	<meta name="robots" content="noindex,nofollow">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="ROTA MOTOR">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>Sepetim — ROTA MOTOR</title>
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="tr_TR">
+	<meta property="og:site_name" content="ROTA MOTOR">
+	<meta property="og:title" content="Siparişlerim — ROTA MOTOR">
+	<meta property="og:description" content="Sepetini ve sipariş geçmişini Rota Motor hesabından takip et.">
+	<meta property="og:image" content="./img/logo.jpg">
+	<meta property="og:image:alt" content="Rota Motor logosu">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Siparişlerim — ROTA MOTOR">
+	<meta name="twitter:description" content="Sepetini ve sipariş geçmişini Rota Motor hesabından takip et.">
+	<meta name="twitter:image" content="./img/logo.jpg">
+	<link rel="icon" type="image/png" sizes="64x64" href="./img/rota-favicon.png?v=2">
+	<link rel="shortcut icon" href="./img/rota-favicon.png?v=2">
+	<link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+	<link rel="manifest" href="./site.webmanifest">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root { color-scheme:dark; --ink:#f7f4fb; --muted:#aaa4b2; --line:rgba(255,255,255,.12); --violet:#a875ff; --lime:#d6ff72; --page:#100d16; }
+		* { box-sizing:border-box; }
+		body { margin:0; color:var(--ink); background:radial-gradient(ellipse at 85% 5%,rgba(106,65,147,.2),transparent 35%),var(--page); font-family:"DM Sans",sans-serif; }
+		a { color:inherit; text-decoration:none; }
+		button { font:inherit; color:inherit; cursor:pointer; }
+		.site-header { position:sticky; z-index:2; top:0; border-bottom:1px solid var(--line); background:rgba(16,13,22,.92); backdrop-filter:blur(16px); transition:transform .28s ease; }
+		.site-header.is-hidden { transform:translateY(-100%); }
+		.back-to-top { position:fixed; z-index:30; right:24px; bottom:24px; width:48px; height:48px; display:grid; place-items:center; border:1px solid rgba(214,255,114,.55); border-radius:50%; color:var(--lime); background:rgba(23,19,29,.92); box-shadow:0 8px 26px rgba(0,0,0,.35); font-size:24px; opacity:0; pointer-events:none; transform:translateY(10px); transition:opacity .2s,transform .2s,background .2s; cursor:pointer; }
+		.back-to-top.is-visible { opacity:1; pointer-events:auto; transform:translateY(0); }
+		.back-to-top:hover { color:#171b0d; background:var(--lime); }
+		.content { width:min(1120px,calc(100% - 40px)); margin:auto; }
+		.footer-inner { width:100%; margin:0; padding:0 12px; }
+		.header-inner { width:100%; min-height:76px; margin:0; padding:0 12px; display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:28px; }
+		.brand { display:flex; align-items:center; gap:10px; white-space:nowrap; }
+		.brand-mark { width:35px; height:35px; display:block; border-radius:50%; object-fit:cover; object-position:center; background:#100d16; box-shadow:0 0 0 1px rgba(214,255,114,.25); }
+		.brand-name { font:700 22px "Barlow Condensed",sans-serif; letter-spacing:1px; }
+		.main-nav { display:flex; align-items:center; justify-content:space-between; gap:0; margin:0 8px; padding:5px; border:1px solid rgba(214,255,114,.2); border-radius:12px; color:#c5bfcc; background:linear-gradient(120deg,rgba(168,117,255,.12),rgba(255,255,255,.025)); }
+		.main-nav a { position:relative; flex:1; padding:10px 8px; border-radius:8px; font-size:12px; text-align:center; white-space:nowrap; transition:color .2s,background .25s,transform .25s; }
+		.main-nav a + a::before { position:absolute; top:50%; left:0; width:1px; height:15px; content:""; background:rgba(255,255,255,.15); transform:translateY(-50%); }
+		.main-nav a::after { position:absolute; right:50%; bottom:4px; left:50%; height:1px; content:""; background:var(--lime); transition:left .25s,right .25s; }
+		.main-nav a:hover,.main-nav a[aria-current="page"] { color:var(--lime); background:rgba(214,255,114,.08); }
+		.main-nav a:hover::after { right:13px; left:13px; }
+		.account-actions { display:flex; align-items:center; gap:8px; white-space:nowrap; }
+		.account-actions a { padding:10px 12px; border:1px solid var(--line); border-radius:3px; font-size:11px; }
+		.account-actions.is-authenticated { gap:4px; padding:4px; border:1px solid rgba(168,117,255,.32); border-radius:999px; background:rgba(23,19,29,.92); box-shadow:inset 0 0 16px rgba(168,117,255,.05); }
+		.account-actions .account-greeting { display:flex; align-items:center; gap:7px; padding-right:9px; color:#d8d1df; font-size:11px; }
+		.account-avatar { width:29px; height:29px; display:grid; place-items:center; border-radius:50%; color:#18131e; background:var(--lime); font:700 13px "Barlow Condensed",sans-serif; }
+		.account-greeting-label { color:var(--muted); }
+		.account-greeting-name { max-width:84px; overflow:hidden; color:var(--ink); font-weight:700; text-overflow:ellipsis; white-space:nowrap; }
+		.account-actions .logout-button { min-height:34px; padding:0 13px; border:1px solid rgba(168,117,255,.4); border-radius:999px; color:#dfcaff; background:rgba(168,117,255,.12); font-size:11px; font-weight:600; transition:color .2s,background .2s,border-color .2s; }
+		.account-actions .logout-button:hover { border-color:#c9a8ff; color:#17111e; background:#c9a8ff; }
+		.account-actions .signup { border-color:var(--lime); color:#171b0d; background:var(--lime); font-weight:700; }
+		.content { min-height:calc(100vh - 155px); padding:78px 0 90px; }
+		.eyebrow { color:var(--lime); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+		h1,h2,p { margin-top:0; }
+		h1 { margin:10px 0 30px; font:700 clamp(46px,8vw,76px)/.95 "Barlow Condensed",sans-serif; text-transform:uppercase; }
+		.cart-layout { display:grid; grid-template-columns:1fr 310px; gap:28px; align-items:start; }
+		.cart-list { display:grid; gap:10px; }
+		.cart-empty,.cart-row,.summary { border:1px solid var(--line); background:rgba(23,19,29,.82); }
+		.cart-empty { padding:24px; color:var(--muted); font-size:13px; }
+		.cart-row { display:grid; grid-template-columns:1fr auto auto; align-items:center; gap:22px; padding:18px; font-size:13px; }
+		.cart-row .price { color:var(--lime); font-weight:700; white-space:nowrap; }
+		.remove-button { border:0; color:#c5bfcc; background:transparent; font-size:12px; }
+		.summary { padding:22px; }
+		.summary h2 { margin-bottom:22px; font:600 27px "Barlow Condensed",sans-serif; text-transform:uppercase; }
+		.summary-line { display:flex; justify-content:space-between; gap:12px; padding:13px 0; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+		.summary-line.total { color:var(--lime); font-size:14px; font-weight:700; }
+		.checkout { width:100%; min-height:46px; margin-top:12px; border:0; border-radius:2px; color:#171b0d; background:var(--lime); font-size:12px; font-weight:700; }
+		.continue { display:inline-block; margin-top:20px; color:#d3b9fa; font-size:12px; }
+		footer { border-top:1px solid var(--line); color:var(--muted); font-size:11px; }
+		.footer-inner { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+		.toast { position:fixed; right:20px; bottom:20px; padding:14px 18px; border:1px solid rgba(214,255,114,.4); background:#211b29; opacity:0; transform:translateY(8px); transition:.2s; pointer-events:none; font-size:12px; }
+		.toast.show { opacity:1; transform:none; }
+		@media(max-width:960px) { .header-inner { gap:12px; } .main-nav { margin:0 4px; } .main-nav a { padding:9px 5px; } }
+		@media(max-width:760px) { .header-inner { display:flex; flex-wrap:wrap; padding:12px; gap:10px; } .brand { margin-right:auto; } .main-nav { order:2; flex:1 0 100%; width:100%; margin:2px 0 0; } .main-nav a { padding:9px 3px; font-size:10px; } .account-actions a,.account-actions .logout-button { padding:9px; font-size:10px; } .content { padding:54px 0 65px; } .cart-layout { grid-template-columns:1fr; } .cart-row { grid-template-columns:1fr auto; gap:12px; } .remove-button { grid-column:2; } .footer-inner { min-height:70px; padding:0 12px; gap:8px; font-size:9px; } }
+		@media(max-width:760px) { .account-actions.is-authenticated { gap:2px; padding:3px; } .account-actions .account-greeting { gap:5px; padding-right:4px; font-size:10px; } .account-avatar { width:26px; height:26px; } .account-actions .logout-button { min-height:30px; padding:0 8px; font-size:9px; } }
+	</style>
+	<link rel="stylesheet" href="account.css">
+</head>
+<body>
+	<header class="site-header"><div class="header-inner">
+		<a class="brand" href="index.html"><img class="brand-mark" src="img/logo.jpg" alt=""><span class="brand-name">ROTA MOTOR</span></a>
+		<nav class="main-nav" aria-label="Ana gezinme"><a href="index.html">Anasayfa</a><a href="ürünler.html">Ürünler</a><a href="siparis.html" aria-current="page">Siparişler (<span class="cart-count">0</span>)</a><a href="hakkimizda.html">Hakkımızda</a></nav>
+		<div class="account-actions"><a href="index.html#giris">Giriş yap</a><a class="signup" href="index.html#kayit">Kayıt ol</a></div>
+	</div></header>
+	<main class="content">
+		<div class="eyebrow">Seçtiklerin</div>
+		<h1>Sipariş sepetin.</h1>
+		<div class="cart-layout">
+			<div class="cart-list" id="cart-list" aria-live="polite"></div>
+			<aside class="summary"><h2>Sipariş özeti</h2><div class="summary-line"><span>Ürün adedi</span><span id="item-count">0</span></div><div class="summary-line total"><span>Genel toplam</span><span id="cart-total">₺0</span></div><button class="checkout" id="checkout" type="button">Siparişi tamamla</button><a class="continue" href="ürünler.html">← Alışverişe devam et</a></aside>
+		</div>
+	</main>
+	<footer><div class="footer-inner"><a class="brand" href="index.html"><img class="brand-mark" src="img/logo.jpg" alt=""><span class="brand-name">ROTA MOTOR</span></a><span>© 2025 Rota Motor. Tutkuyla, yola.</span></div></footer>
+	<button class="back-to-top" type="button" aria-label="Sayfanın başına dön" title="Yukarı çık">↑</button>
+	<div class="toast" role="status" aria-live="polite"></div>
+	<script>
+		const cartKey = "rotaSepet";
+		const cart = JSON.parse(localStorage.getItem(cartKey) || "[]");
+		const cartList = document.querySelector("#cart-list");
+		function renderCart() {
+			document.querySelectorAll(".cart-count").forEach((item) => item.textContent = cart.length);
+			document.querySelector("#item-count").textContent = cart.length;
+			const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
+			document.querySelector("#cart-total").textContent = `₺${total.toLocaleString("tr-TR")}`;
+			cartList.innerHTML = cart.length ? cart.map((item, index) => `<div class="cart-row"><span>${item.name}</span><span class="price">₺${Number(item.price).toLocaleString("tr-TR")}</span><button class="remove-button" type="button" data-remove="${index}">Kaldır ×</button></div>`).join("") : '<p class="cart-empty">Sepetin şu an boş. Sana uygun motosikleti keşfetmeye ne dersin?</p>';
+		}
+		cartList.addEventListener("click", (event) => {
+			const button = event.target.closest("[data-remove]");
+			if (!button) return;
+			cart.splice(Number(button.dataset.remove), 1);
+			localStorage.setItem(cartKey, JSON.stringify(cart));
+			renderCart();
+		});
+		document.querySelector("#checkout").addEventListener("click", async (event) => {
+			const button = event.currentTarget;
+			const toast = document.querySelector(".toast");
+			if (!cart.length) {
+				toast.textContent = "Önce sepetine bir ürün ekle.";
+				toast.classList.add("show");
+				setTimeout(() => toast.classList.remove("show"), 2600);
+				return;
+			}
+			button.disabled = true;
+			button.textContent = "Kaydediliyor...";
+			try {
+				const response = await fetch("/api/orders", {
+					method: "POST",
+					headers: { "Content-Type": "application/json", Accept: "application/json" },
+					body: JSON.stringify({ items: cart })
+				});
+				const result = await response.json();
+				if (!response.ok) throw new Error(result.error || "Sipariş kaydedilemedi.");
+				cart.splice(0, cart.length);
+				localStorage.setItem(cartKey, JSON.stringify(cart));
+				renderCart();
+				toast.textContent = `${result.order.number} sipariş geçmişine eklendi. Bu sürüm ödeme almaz.`;
+			}
+			catch (error) {
+				toast.textContent = error instanceof TypeError ? "Sunucuya bağlanılamadı." : error.message;
+			}
+			finally {
+				button.disabled = false;
+				button.textContent = "Siparişi tamamla";
+				toast.classList.add("show");
+				setTimeout(() => toast.classList.remove("show"), 3200);
+			}
+		});
+		renderCart();
+		const stickyHeader = document.querySelector(".site-header");
+		let previousScrollY = window.scrollY;
+		let scrollDirection = 0;
+		let directionDistance = 0;
+		window.addEventListener("scroll", () => {
+			const currentScrollY = window.scrollY;
+			const delta = currentScrollY - previousScrollY;
+			previousScrollY = currentScrollY;
+			if (currentScrollY < 70) {
+				stickyHeader.classList.remove("is-hidden");
+				scrollDirection = 0;
+				directionDistance = 0;
+				return;
+			}
+			const nextDirection = Math.sign(delta);
+			if (!nextDirection) return;
+			if (nextDirection !== scrollDirection) {
+				scrollDirection = nextDirection;
+				directionDistance = 0;
+			}
+			directionDistance += Math.abs(delta);
+			if (directionDistance >= 10) stickyHeader.classList.toggle("is-hidden", scrollDirection > 0);
+		}, { passive: true });
+	</script>
+	<script>
+		const backToTop = document.querySelector(".back-to-top");
+		function updateBackToTop() {
+			const atPageEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
+			backToTop.classList.toggle("is-visible", atPageEnd && window.scrollY > 0);
+		}
+		window.addEventListener("scroll", updateBackToTop, { passive: true });
+		window.addEventListener("resize", updateBackToTop);
+		backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+		updateBackToTop();
+	</script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script src="auth.js"></script>
+</body>
+</html>

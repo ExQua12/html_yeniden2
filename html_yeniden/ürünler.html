@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#100d16">
+	<meta name="author" content="Rota Motor">
+	<meta name="application-name" content="ROTA MOTOR">
+	<meta name="description" content="Rota Motor motosiklet modellerini ve incelemelerini keşfet. Sport, roadster, adventure ve touring motor seçeneklerine göz at.">
+	<meta name="keywords" content="Rota Motor, motosiklet modelleri, motor modelleri, sport motosiklet, roadster, adventure motosiklet, touring motosiklet">
+	<meta name="robots" content="index,follow">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="ROTA MOTOR">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>Ürünler — ROTA MOTOR</title>
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="tr_TR">
+	<meta property="og:site_name" content="ROTA MOTOR">
+	<meta property="og:title" content="Motosiklet Modelleri — ROTA MOTOR">
+	<meta property="og:description" content="Rota Motor motosiklet modellerini ve incelemelerini keşfet. Sport, roadster, adventure ve touring motor seçeneklerine göz at.">
+	<meta property="og:image" content="./img/logo.jpg">
+	<meta property="og:image:alt" content="Rota Motor logosu">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Motosiklet Modelleri — ROTA MOTOR">
+	<meta name="twitter:description" content="Rota Motor motosiklet modellerini ve incelemelerini keşfet.">
+	<meta name="twitter:image" content="./img/logo.jpg">
+	<link rel="icon" type="image/png" sizes="64x64" href="./img/rota-favicon.png?v=2">
+	<link rel="shortcut icon" href="./img/rota-favicon.png?v=2">
+	<link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+	<link rel="manifest" href="./site.webmanifest">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root { color-scheme: dark; --ink:#f7f4fb; --muted:#aaa4b2; --line:rgba(255,255,255,.12); --panel:#17131d; --violet:#a875ff; --lime:#d6ff72; --page:#100d16; }
+		* { box-sizing:border-box; }
+		body { margin:0; color:var(--ink); background:radial-gradient(ellipse at 85% 5%,rgba(106,65,147,.2),transparent 35%),var(--page); font-family:"DM Sans",sans-serif; }
+		body.garage-locked { overflow:hidden; }
+		a { color:inherit; text-decoration:none; }
+		button { font:inherit; color:inherit; cursor:pointer; }
+		.site-header { position:sticky; z-index:2; top:0; border-bottom:1px solid var(--line); background:rgba(16,13,22,.92); backdrop-filter:blur(16px); transition:transform .28s ease; }
+		.site-header.is-hidden { transform:translateY(-100%); }
+		.back-to-top { position:fixed; z-index:30; right:24px; bottom:24px; width:48px; height:48px; display:grid; place-items:center; border:1px solid rgba(214,255,114,.55); border-radius:50%; color:var(--lime); background:rgba(23,19,29,.92); box-shadow:0 8px 26px rgba(0,0,0,.35); font-size:24px; opacity:0; pointer-events:none; transform:translateY(10px); transition:opacity .2s,transform .2s,background .2s; cursor:pointer; }
+		.back-to-top.is-visible { opacity:1; pointer-events:auto; transform:translateY(0); }
+		.back-to-top:hover { color:#171b0d; background:var(--lime); }
+		.content { width:min(1120px,calc(100% - 40px)); margin:auto; }
+		.footer-inner { width:100%; margin:0; padding:0 12px; }
+		.header-inner { width:100%; min-height:76px; margin:0; padding:0 12px; display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:28px; }
+		.brand { display:flex; align-items:center; gap:10px; white-space:nowrap; }
+		.brand-mark { width:35px; height:35px; display:block; border-radius:50%; object-fit:cover; object-position:center; background:#100d16; box-shadow:0 0 0 1px rgba(214,255,114,.25); }
+		.brand-name { font:700 22px "Barlow Condensed",sans-serif; letter-spacing:1px; }
+		.main-nav { display:flex; align-items:center; justify-content:space-between; gap:0; margin:0 8px; padding:5px; border:1px solid rgba(214,255,114,.2); border-radius:12px; color:#c5bfcc; background:linear-gradient(120deg,rgba(168,117,255,.12),rgba(255,255,255,.025)); }
+		.main-nav a { position:relative; flex:1; padding:10px 8px; border-radius:8px; font-size:12px; text-align:center; white-space:nowrap; transition:color .2s,background .25s,transform .25s; }
+		.main-nav a + a::before { position:absolute; top:50%; left:0; width:1px; height:15px; content:""; background:rgba(255,255,255,.15); transform:translateY(-50%); }
+		.main-nav a::after { position:absolute; right:50%; bottom:4px; left:50%; height:1px; content:""; background:var(--lime); transition:left .25s,right .25s; }
+		.main-nav a:hover,.main-nav a[aria-current="page"] { color:var(--lime); background:rgba(214,255,114,.08); }
+		.main-nav a:hover::after { right:13px; left:13px; }
+		.account-actions { display:flex; align-items:center; gap:8px; white-space:nowrap; }
+		.account-actions a { padding:10px 12px; border:1px solid var(--line); border-radius:3px; font-size:11px; }
+		.account-actions.is-authenticated { gap:4px; padding:4px; border:1px solid rgba(168,117,255,.32); border-radius:999px; background:rgba(23,19,29,.92); box-shadow:inset 0 0 16px rgba(168,117,255,.05); }
+		.account-actions .account-greeting { display:flex; align-items:center; gap:7px; padding-right:9px; color:#d8d1df; font-size:11px; }
+		.account-avatar { width:29px; height:29px; display:grid; place-items:center; border-radius:50%; color:#18131e; background:var(--lime); font:700 13px "Barlow Condensed",sans-serif; }
+		.account-greeting-label { color:var(--muted); }
+		.account-greeting-name { max-width:84px; overflow:hidden; color:var(--ink); font-weight:700; text-overflow:ellipsis; white-space:nowrap; }
+		.account-actions .logout-button { min-height:34px; padding:0 13px; border:1px solid rgba(168,117,255,.4); border-radius:999px; color:#dfcaff; background:rgba(168,117,255,.12); font-size:11px; font-weight:600; transition:color .2s,background .2s,border-color .2s; }
+		.account-actions .logout-button:hover { border-color:#c9a8ff; color:#17111e; background:#c9a8ff; }
+		.account-actions .signup { border-color:var(--lime); color:#171b0d; background:var(--lime); font-weight:700; }
+		.content { padding:58px 0 90px; }
+		.eyebrow { color:var(--lime); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+		h1,h2,h3,p { margin-top:0; }
+		.products-hero { position:relative; min-height:390px; overflow:hidden; display:grid; place-items:center; isolation:isolate; text-align:center; background:#14111a; }
+		.products-hero-image { position:absolute; z-index:-2; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 56%; }
+		.products-hero::after { position:absolute; z-index:-1; inset:0; content:""; background:linear-gradient(90deg,rgba(16,13,22,.75),rgba(16,13,22,.55) 50%,rgba(16,13,22,.75)),linear-gradient(0deg,rgba(16,13,22,.58),rgba(16,13,22,.2)); }
+		.products-hero-copy { width:min(760px,calc(100% - 40px)); padding:70px 0; }
+		.products-hero-copy .eyebrow { justify-content:center; }
+		h1 { margin:14px 0; font:700 clamp(48px,7vw,78px)/.95 "Barlow Condensed",sans-serif; text-transform:uppercase; text-wrap:balance; }
+		.intro { max-width:610px; margin:0 auto; color:#e4dfea; font-size:15px; line-height:1.8; text-wrap:balance; }
+		.collection-heading { margin-bottom:24px; display:flex; align-items:center; justify-content:space-between; gap:16px; color:var(--muted); font-size:12px; }
+		.collection-heading strong { color:var(--ink); font:600 25px "Barlow Condensed",sans-serif; text-transform:uppercase; }
+		.product-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:stretch; }
+		.product-card { min-width:0; overflow:hidden; display:flex; flex-direction:column; border:1px solid var(--line); background:linear-gradient(145deg,rgba(128,86,170,.11),transparent 45%),var(--panel); }
+		.product-photo { position:relative; height:320px; overflow:hidden; background:#201a27; }
+		.product-photo img { width:100%; height:100%; display:block; object-fit:cover; transition:transform .4s; }
+		.product-card:hover img { transform:scale(1.035); }
+		.product-tag { position:absolute; top:15px; left:15px; padding:7px 10px; background:rgba(16,13,22,.85); color:#e8def3; font-size:10px; letter-spacing:1px; text-transform:uppercase; }
+		.product-info { padding:22px; display:flex; flex:1; flex-direction:column; }
+		.product-title { display:flex; justify-content:space-between; gap:12px; }
+		h2 { margin:0; font:600 30px "Barlow Condensed",sans-serif; text-transform:uppercase; }
+		.price { color:var(--lime); font-size:14px; font-weight:700; white-space:nowrap; }
+		.product-info p { min-height:52px; margin:12px 0 18px; flex:1; color:var(--muted); font-size:12px; line-height:1.8; }
+		.product-footer { display:flex; justify-content:space-between; align-items:center; gap:12px; color:#d0c9d5; font-size:11px; }
+		.add-button { padding:10px 13px; border:1px solid rgba(214,255,114,.55); border-radius:2px; color:var(--lime); background:transparent; font-size:11px; font-weight:700; }
+		.add-button:hover { color:#171b0d; background:var(--lime); }
+		footer { border-top:1px solid var(--line); color:var(--muted); font-size:11px; }
+		.footer-inner { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+		.toast { position:fixed; right:20px; bottom:20px; padding:14px 18px; border:1px solid rgba(214,255,114,.4); background:#211b29; opacity:0; transform:translateY(8px); transition:.2s; pointer-events:none; font-size:12px; }
+		.toast.show { opacity:1; transform:none; }
+		.garage-intro { position:fixed; z-index:100; inset:0; overflow:hidden; display:grid; place-items:center; background:#0b0910; }
+		.garage-reveal { position:absolute; inset:0; display:grid; place-items:center; background:#100d16; }
+		.garage-reveal img { width:100%; height:100%; object-fit:cover; object-position:center 55%; filter:brightness(.62) saturate(.8); }
+		.garage-reveal::after { position:absolute; inset:0; content:""; background:linear-gradient(90deg,rgba(16,13,22,.55),rgba(16,13,22,.08) 55%,rgba(16,13,22,.5)); }
+		.garage-door { position:absolute; inset:0; width:100%; height:100%; padding:0; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; border:0; color:var(--ink); background:linear-gradient(135deg,#24202a,#111016 58%,#1c1722); text-align:center; cursor:pointer; }
+		.garage-door::before { position:absolute; inset:0; content:""; background:radial-gradient(ellipse at 50% 45%,rgba(168,117,255,.16),transparent 52%); }
+		.garage-frame { position:absolute; z-index:2; inset:16px; border:1px solid rgba(214,255,114,.26); box-shadow:inset 0 0 45px rgba(0,0,0,.42),0 0 25px rgba(0,0,0,.35); pointer-events:none; }
+		.garage-shutter { position:absolute; inset:0; background:repeating-linear-gradient(to bottom,transparent 0,transparent 45px,rgba(0,0,0,.55) 46px,rgba(255,255,255,.08) 48px),linear-gradient(100deg,#26222d,#17141c 52%,#28232e); box-shadow:inset 0 18px 30px rgba(0,0,0,.35); }
+		.garage-title,.garage-action { position:relative; z-index:1; }
+		.garage-title { font:700 clamp(46px,8vw,82px)/.9 "Barlow Condensed",sans-serif; text-transform:uppercase; text-shadow:0 4px 24px rgba(0,0,0,.7); }
+		.garage-title span { display:block; margin-top:.12em; color:var(--lime); }
+		.garage-action { margin-top:30px; padding:14px 22px; border:1px solid rgba(214,255,114,.65); border-radius:4px; color:var(--lime); background:rgba(16,13,22,.8); font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; box-shadow:0 8px 26px rgba(0,0,0,.35); transition:color .2s,background .2s,transform .2s; }
+		.garage-door:hover .garage-action,.garage-door:focus-visible .garage-action { color:#171b0d; background:var(--lime); transform:translateY(-2px); }
+		.garage-intro.is-opening .garage-door { animation:garage-roll-up 1.15s cubic-bezier(.68,0,.2,1) forwards; transform-origin:top; }
+		.garage-intro.is-gone { opacity:0; visibility:hidden; transition:opacity .25s ease,visibility .25s; }
+		@keyframes garage-roll-up { to { transform:translateY(-102%); } }
+		@media(max-width:600px) { .garage-frame { inset:10px; } .garage-title { font-size:clamp(44px,14vw,64px); } .garage-action { margin-top:24px; } }
+		@media(prefers-reduced-motion:reduce) { .garage-intro.is-opening .garage-door { animation-duration:.01ms; } }
+		@media(max-width:960px) { .header-inner { gap:12px; } .main-nav { margin:0 4px; } .main-nav a { padding:9px 5px; } .product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+		@media(max-width:760px) { .header-inner { display:flex; flex-wrap:wrap; padding:12px; gap:10px; } .brand { margin-right:auto; } .main-nav { order:2; flex:1 0 100%; width:100%; margin:2px 0 0; } .main-nav a { padding:9px 3px; font-size:10px; } .account-actions a,.account-actions .logout-button { padding:9px; font-size:10px; } .products-hero { min-height:340px; } .products-hero-copy { width:calc(100% - 36px); padding:55px 0; } .products-hero-copy h1 { font-size:clamp(44px,12vw,62px); } .intro { font-size:13px; } .content { padding:42px 0 60px; } .collection-heading { align-items:flex-start; flex-direction:column; gap:5px; } .product-grid { grid-template-columns:1fr; gap:16px; } .product-photo { height:260px; } .product-info { padding:19px; } .footer-inner { min-height:70px; padding:0 12px; gap:8px; font-size:9px; } }
+		@media(max-width:760px) { .account-actions.is-authenticated { gap:2px; padding:3px; } .account-actions .account-greeting { gap:5px; padding-right:4px; font-size:10px; } .account-avatar { width:26px; height:26px; } .account-actions .logout-button { min-height:30px; padding:0 8px; font-size:9px; } }
+	</style>
+	<link rel="stylesheet" href="account.css">
+</head>
+<body>
+	<div class="garage-intro" id="garage-intro">
+		<div class="garage-reveal" aria-hidden="true"><img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1800&q=85" alt=""></div>
+		<button class="garage-door" id="garage-door" type="button" aria-label="Garaj kapısını aç">
+			<span class="garage-frame" aria-hidden="true"></span>
+			<span class="garage-shutter" aria-hidden="true"></span>
+			<span class="garage-title">ROTA MOTOR<span>Garajı</span></span>
+			<span class="garage-action">Garajı aç <span aria-hidden="true">↑</span></span>
+		</button>
+	</div>
+	<header class="site-header"><div class="header-inner">
+		<a class="brand" href="index.html"><img class="brand-mark" src="img/logo.jpg" alt=""><span class="brand-name">ROTA MOTOR</span></a>
+		<nav class="main-nav" aria-label="Ana gezinme"><a href="index.html">Anasayfa</a><a href="ürünler.html" aria-current="page">Ürünler</a><a href="siparis.html">Siparişler (<span class="cart-count">0</span>)</a><a href="hakkimizda.html">Hakkımızda</a></nav>
+		<div class="account-actions"><a href="index.html#giris">Giriş yap</a><a class="signup" href="index.html#kayit">Kayıt ol</a></div>
+	</div></header>
+	<section class="products-hero" aria-labelledby="products-title">
+		<img class="products-hero-image" src="https://images.unsplash.com/photo-1542242476-5a3565835a38?auto=format&fit=crop&w=2000&q=85" alt="Dağların arasından kıvrılarak ilerleyen yol" fetchpriority="high">
+		<div class="products-hero-copy">
+			<div class="eyebrow">ROTA MOTOR · MODELLER</div>
+			<h1 id="products-title">Yol arkadaşını bul.</h1>
+			<p class="intro">Şehirde çevik, uzun yolda konforlu. Her yolculuğa uygun motosikletleri keşfet; sana en yakın rotayı birlikte bulalım.</p>
+		</div>
+	</section>
+	<main class="content" id="modeller">
+		<div class="collection-heading"><strong>Garajdaki modeller</strong><span>İhtiyacına uygun sürüşü seç.</span></div>
+		<div class="product-grid">
+			<article class="product-card"><div class="product-photo"><img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1100&q=85" alt="Siyah gövdeli sportif motosiklet"><span class="product-tag">Sport · 2025</span></div><div class="product-info"><div class="product-title"><h2>Vortex R9</h2><span class="price">₺489.900</span></div><p>Keskin çizgiler, güçlü hızlanma ve virajlarda güven veren dengesiyle her sürüşe hazır.</p><div class="product-footer"><span>889 cc · 119 hp</span><button class="add-button" type="button" data-product="Vortex R9" data-price="489900">Sepete ekle +</button></div></div></article>
+			<article class="product-card"><div class="product-photo"><img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1100&q=85" alt="Yolda ilerleyen roadster motosiklet"><span class="product-tag">Roadster · 2025</span></div><div class="product-info"><div class="product-title"><h2>Nova 650</h2><span class="price">₺329.500</span></div><p>Günlük rotalara uyum sağlayan rahat sürüş pozisyonu, yalın tasarım ve dengeli güç.</p><div class="product-footer"><span>649 cc · 72 hp</span><button class="add-button" type="button" data-product="Nova 650" data-price="329500">Sepete ekle +</button></div></div></article>
+			<article class="product-card"><div class="product-photo"><img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1100&q=85" alt="Kırmızı ve siyah spor motosiklet"><span class="product-tag">Sport · 2025</span></div><div class="product-info"><div class="product-title"><h2>Raven S</h2><span class="price">₺529.000</span></div><p>Sportif çizgileri ve dengeli gücüyle virajlı rotalarda keyifli bir sürüş sunar.</p><div class="product-footer"><span>937 cc · 110 hp</span><button class="add-button" type="button" data-product="Raven S" data-price="529000">Sepete ekle +</button></div></div></article>
+			<article class="product-card"><div class="product-photo"><img src="https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=1100&q=85" alt="Siyah ve gümüş naked motosiklet"><span class="product-tag">Naked · 2025</span></div><div class="product-info"><div class="product-title"><h2>Arden 800</h2><span class="price">₺398.000</span></div><p>Rahat oturuşu ve sade kontrolüyle şehir sürüşlerini daha akıcı hale getirir.</p><div class="product-footer"><span>799 cc · 95 hp</span><button class="add-button" type="button" data-product="Arden 800" data-price="398000">Sepete ekle +</button></div></div></article>
+			<article class="product-card"><div class="product-photo"><img src="https://images.unsplash.com/photo-1646117701819-0f2eff7a5f22?auto=format&fit=crop&w=1100&q=85" alt="Yol kenarında park edilmiş motosiklet"><span class="product-tag">Touring · 2025</span></div><div class="product-info"><div class="product-title"><h2>Atlas Touring</h2><span class="price">₺446.500</span></div><p>Uzun mesafelerde konfor ve yola güvenle odaklanman için tasarlandı.</p><div class="product-footer"><span>850 cc · 88 hp</span><button class="add-button" type="button" data-product="Atlas Touring" data-price="446500">Sepete ekle +</button></div></div></article>
+			<article class="product-card"><div class="product-photo"><img src="https://images.unsplash.com/photo-1743701168430-d014f943ece0?auto=format&fit=crop&w=1100&q=85" alt="Park alanında siyah motosiklet"><span class="product-tag">Classic · 2025</span></div><div class="product-info"><div class="product-title"><h2>Forma 700</h2><span class="price">₺352.900</span></div><p>Klasik görünümü, dengeli sürüş karakteriyle günlük rotalara eşlik eder.</p><div class="product-footer"><span>700 cc · 74 hp</span><button class="add-button" type="button" data-product="Forma 700" data-price="352900">Sepete ekle +</button></div></div></article>
+		</div>
+	</main>
+	<footer><div class="footer-inner"><a class="brand" href="index.html"><img class="brand-mark" src="img/logo.jpg" alt=""><span class="brand-name">ROTA MOTOR</span></a><span>© 2025 Rota Motor. Tutkuyla, yola.</span></div></footer>
+	<button class="back-to-top" type="button" aria-label="Sayfanın başına dön" title="Yukarı çık">↑</button>
+	<div class="toast" role="status" aria-live="polite"></div>
+	<script>
+		document.body.classList.add("garage-locked");
+		const garageIntro = document.querySelector("#garage-intro");
+		const garageDoor = document.querySelector("#garage-door");
+		garageDoor.addEventListener("click", () => {
+			if (garageIntro.classList.contains("is-opening")) return;
+			garageIntro.classList.add("is-opening");
+			garageDoor.disabled = true;
+			setTimeout(() => {
+				garageIntro.classList.add("is-gone");
+				document.body.classList.remove("garage-locked");
+				garageIntro.setAttribute("aria-hidden", "true");
+			}, 1150);
+		});
+	</script>
+	<script>
+		const cartKey = "rotaSepet";
+		const cart = JSON.parse(localStorage.getItem(cartKey) || "[]");
+		const toast = document.querySelector(".toast");
+		let toastTimer;
+		function updateCount() { document.querySelectorAll(".cart-count").forEach((item) => item.textContent = cart.length); }
+		updateCount();
+		document.querySelectorAll(".add-button").forEach((button) => button.addEventListener("click", () => {
+			cart.push({ name: button.dataset.product, price: Number(button.dataset.price) });
+			localStorage.setItem(cartKey, JSON.stringify(cart));
+			updateCount();
+			toast.textContent = `${button.dataset.product} sepete eklendi.`;
+			toast.classList.add("show");
+			clearTimeout(toastTimer);
+			toastTimer = setTimeout(() => toast.classList.remove("show"), 2500);
+		}));
+		const stickyHeader = document.querySelector(".site-header");
+		let previousScrollY = window.scrollY;
+		let scrollDirection = 0;
+		let directionDistance = 0;
+		window.addEventListener("scroll", () => {
+			const currentScrollY = window.scrollY;
+			const delta = currentScrollY - previousScrollY;
+			previousScrollY = currentScrollY;
+			if (currentScrollY < 70) {
+				stickyHeader.classList.remove("is-hidden");
+				scrollDirection = 0;
+				directionDistance = 0;
+				return;
+			}
+			const nextDirection = Math.sign(delta);
+			if (!nextDirection) return;
+			if (nextDirection !== scrollDirection) {
+				scrollDirection = nextDirection;
+				directionDistance = 0;
+			}
+			directionDistance += Math.abs(delta);
+			if (directionDistance >= 10) stickyHeader.classList.toggle("is-hidden", scrollDirection > 0);
+		}, { passive: true });
+	</script>
+	<script>
+		const backToTop = document.querySelector(".back-to-top");
+		function updateBackToTop() {
+			const atPageEnd = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4;
+			backToTop.classList.toggle("is-visible", atPageEnd && window.scrollY > 0);
+		}
+		window.addEventListener("scroll", updateBackToTop, { passive: true });
+		window.addEventListener("resize", updateBackToTop);
+		backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+		updateBackToTop();
+	</script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script src="auth.js"></script>
+</body>
+</html>

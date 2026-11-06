@@ -1,0 +1,122 @@
+.account-actions.is-authenticated {
+    position: relative;
+    display: grid;
+    place-items: center;
+    justify-self: end;
+    gap: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.account-actions .account-trigger {
+    width: 44px;
+    height: 44px;
+    padding: 4px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(168,117,255,.5);
+    border-radius: 50%;
+    background: rgba(23,19,29,.92);
+    box-shadow: 0 0 0 3px rgba(168,117,255,.08);
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.account-trigger:hover,
+.account-trigger:focus-visible,
+.account-trigger[aria-expanded="true"] {
+    border-color: var(--lime);
+    box-shadow: 0 0 0 4px rgba(214,255,114,.12);
+    transform: translateY(-1px);
+}
+
+.account-trigger .account-avatar {
+    width: 34px;
+    height: 34px;
+    font: 700 14px "DM Sans", sans-serif;
+}
+
+.account-panel {
+    position: absolute;
+    z-index: 80;
+    top: calc(100% + 12px);
+    right: 0;
+    width: min(390px, calc(100vw - 32px));
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+    padding: 20px;
+    border: 1px solid rgba(168,117,255,.3);
+    border-radius: 8px;
+    color: var(--ink);
+    background: #17131d;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    text-align: left;
+}
+
+.account-panel[hidden] { display: none !important; }
+.account-panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
+.account-panel-head h2 { margin: 0 0 4px; font: 600 27px/1 "Barlow Condensed", sans-serif; text-transform: uppercase; }
+.account-panel-head p { margin: 0; color: var(--muted); font-size: 11px; overflow-wrap: anywhere; }
+.account-panel-close { width: 30px; height: 30px; padding: 0; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); background: transparent; font-size: 19px; line-height: 1; cursor: pointer; }
+.profile-form { display: grid; gap: 10px; padding: 16px 0 18px; border-bottom: 1px solid var(--line); }
+.profile-form label { display: grid; gap: 6px; color: #c9c1d0; font-size: 10px; }
+.profile-form input { width: 100%; min-height: 39px; padding: 0 10px; border: 1px solid var(--line); border-radius: 3px; outline: none; color: var(--ink); background: #100d16; font: 12px "DM Sans", sans-serif; }
+.profile-form input:focus { border-color: var(--violet); }
+.profile-save { min-height: 39px; margin-top: 2px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); background: rgba(255,255,255,.035); font-size: 11px; font-weight: 700; cursor: not-allowed; transition:color .2s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease; }
+.profile-save.is-dirty:not(:disabled) { border-color:#a6d94d; color:#f7ffe8; background:#5b762b; box-shadow:0 0 0 3px rgba(214,255,114,.12); cursor:pointer; }
+.profile-save.is-dirty:not(:disabled):hover { background:#6b8833; }
+.profile-save:disabled { opacity:.62; }
+.profile-status { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.profile-status.is-error { color: #ffb6bd; }
+.profile-status.is-success { color: var(--lime); }
+.account-orders { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.account-orders h3 { margin: 0 0 12px; font: 600 21px/1 "Barlow Condensed", sans-serif; text-transform: uppercase; }
+.account-orders-list { display: grid; gap: 8px; }
+.orders-empty { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.account-order { padding: 11px 12px; border: 1px solid var(--line); border-radius: 4px; background: rgba(255,255,255,.025); }
+.account-order-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.account-order-number { color: var(--ink); font-size: 11px; font-weight: 700; }
+.account-order-date { color: var(--muted); font-size: 10px; white-space: nowrap; }
+.account-order-items { margin: 0 0 7px; color: var(--muted); font-size: 10px; line-height: 1.5; }
+.account-order-total { color: var(--lime); font-size: 11px; font-weight: 700; text-align: right; }
+.account-panel-logout { width: 100%; min-height: 39px; margin-top: 15px; border: 1px solid rgba(168,117,255,.4); border-radius: 3px; color: #dfcaff; background: rgba(168,117,255,.1); font-size: 11px; font-weight: 600; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.account-panel-logout:hover { color: #17111e; background: #c9a8ff; }
+
+.auth-error-notice {
+    position: fixed;
+    z-index: 120;
+    top: 24px;
+    left: 50%;
+    width: min(440px, calc(100vw - 32px));
+    padding: 14px 18px;
+    border: 1px solid rgba(195,153,255,.62);
+    border-radius: 8px;
+    color: #f5edff;
+    background: rgba(25,18,34,.88);
+    box-shadow: 0 14px 40px rgba(0,0,0,.4), inset 0 0 24px rgba(168,117,255,.08);
+    backdrop-filter: blur(14px);
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -10px);
+    transition: opacity .22s ease, transform .22s ease;
+}
+
+.auth-error-notice[hidden] { display: none; }
+.auth-error-notice.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+@media (max-width: 700px) {
+    .account-actions .account-trigger { width: 40px; height: 40px; padding: 4px; }
+    .account-trigger .account-avatar { width: 30px; height: 30px; }
+    .account-panel { position: fixed; top: 82px; right: 12px; width: min(390px, calc(100vw - 24px)); max-height: calc(100vh - 96px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .account-trigger { transition-duration: .01ms; }
+}

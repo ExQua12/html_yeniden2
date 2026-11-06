@@ -1,0 +1,25 @@
+{
+  "name": "ROTA MOTOR — Yolunu seç",
+  "short_name": "ROTA MOTOR",
+  "description": "Şehirden açık yola, sürüşün her anı için seçilmiş motosikletler.",
+  "lang": "tr-TR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#100d16",
+  "theme_color": "#100d16",
+  "icons": [
+    {
+      "src": "./img/pwa-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./img/pwa-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
